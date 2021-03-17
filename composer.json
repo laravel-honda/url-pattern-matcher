@@ -1,0 +1,35 @@
+{
+    "name": "honda/url-pattern-matcher",
+    "description": "url-pattern-matcher",
+    "keywords": [
+        "honda",
+        "url-pattern-matcher"
+    ],
+    "homepage": "https://github.com/laravel-honda/url-pattern-matcher",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Félix Dorn",
+            "email": "github@felixdorn.fr",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Honda\\UrlPatternMatcher\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Honda\\UrlPatternMatcher\\Tests\\": "tests"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
