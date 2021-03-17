@@ -26,6 +26,7 @@ $urlPatternMatcher->match('^/articles');
 $urlPatternMatcher->match('/articles$');
 ```
 
+Note: You **can not** combine matchers and do something like `^/articles/*`. I have no plans to support it.
 ## Testing
 
 ```bash
