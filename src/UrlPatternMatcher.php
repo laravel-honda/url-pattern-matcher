@@ -4,15 +4,19 @@ namespace Honda\UrlPatternMatcher;
 
 class UrlPatternMatcher
 {
-    public string $url;
+    public ?string $url;
 
-    public function __construct(string $url)
+    public function __construct(?string $url = null)
     {
-        $this->url = trim($url, '/');
+        $this->url = $url !== null ? trim($url, '/') : null;
     }
 
     public function match(string $pattern): bool
     {
+        if ($url === null) {
+            return false;    
+        }
+        
         if (str_starts_with($pattern, '^')) {
             $pattern = substr($pattern, 1);
 
