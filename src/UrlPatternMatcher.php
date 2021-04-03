@@ -13,7 +13,7 @@ class UrlPatternMatcher
 
     public function match(string $pattern): bool
     {
-        if ($url === null) {
+        if ($pattern === null) {
             return false;    
         }
         
