@@ -4,9 +4,9 @@ namespace Honda\UrlPatternMatcher;
 
 class UrlPatternMatcher
 {
-    protected const PATTERN_IS_WILDCARD         = 1;
-    protected const PATTERN_CHECKS_BEGINNING    = 2;
-    protected const PATTERN_CHECKS_ENDING       = 4;
+    protected const PATTERN_IS_WILDCARD      = 1;
+    protected const PATTERN_CHECKS_BEGINNING = 2;
+    protected const PATTERN_CHECKS_ENDING    = 4;
 
     protected int $type;
     protected string $pattern;
@@ -15,33 +15,6 @@ class UrlPatternMatcher
     {
         $this->type    = $this->getPatternType($pattern);
         $this->pattern = $this->getTrimmedPattern($pattern);
-    }
-
-    public function match(?string $url): bool
-    {
-        $url = trim($url ?? '', '/');
-
-        if (empty($url)) {
-            return false;
-        }
-
-        if ($url === $this->pattern) {
-            return true;
-        }
-
-        if ($this->type & static::PATTERN_IS_WILDCARD) {
-            return fnmatch($this->pattern, $url);
-        }
-
-        if ($this->type & static::PATTERN_CHECKS_BEGINNING) {
-            return str_starts_with($url, $this->pattern);
-        }
-
-        if ($this->type & static::PATTERN_CHECKS_ENDING) {
-            return str_ends_with($url, $this->pattern);
-        }
-
-        return false;
     }
 
     protected function getPatternType(string $pattern): int
@@ -65,6 +38,10 @@ class UrlPatternMatcher
 
     protected function getTrimmedPattern(string $pattern): string
     {
+        if ($pattern === '/') {
+            return $pattern;
+        }
+
         if (str_starts_with($pattern, '^')) {
             $pattern = substr($pattern, 1);
         }
@@ -74,5 +51,32 @@ class UrlPatternMatcher
         }
 
         return trim($pattern, "/ \t\n\r\0\x0B");
+    }
+
+    public function match(?string $url): bool
+    {
+        $url = ($url !== null && $url !== '/') ? trim($url, '/') : $url;
+
+        if (empty($url)) {
+            return false;
+        }
+
+        if ($url === $this->pattern) {
+            return true;
+        }
+
+        if ($this->type & static::PATTERN_IS_WILDCARD) {
+            return fnmatch($this->pattern, $url);
+        }
+
+        if ($this->type & static::PATTERN_CHECKS_BEGINNING) {
+            return str_starts_with($url, $this->pattern);
+        }
+
+        if ($this->type & static::PATTERN_CHECKS_ENDING) {
+            return str_ends_with($url, $this->pattern);
+        }
+
+        return false;
     }
 }

@@ -62,3 +62,8 @@ it('returns false if the URL is null', function () {
     $matcher = new UrlPatternMatcher('/*');
     expect($matcher->match(null))->toBeFalse();
 });
+
+it('returns true if the URL is /', function () {
+    $matcher = new UrlPatternMatcher('/');
+    expect($matcher->match('/'))->toBeTrue();
+});
