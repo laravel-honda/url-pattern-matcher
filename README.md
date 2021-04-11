@@ -1,6 +1,6 @@
 # URL Pattern Matcher
 
-Check if a given path like (`/articles/4`) matches a given pattern like (`/articles/*`).
+Checks if a given path like (`/articles/4`) matches a given pattern like (`/articles/*`).
 
 ## Installation
 
