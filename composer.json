@@ -19,7 +19,7 @@
         "symfony/polyfill-php80": "^1.22"
     },
     "require-dev": {
-        "pestphp/pest": "^0.3.8",
+        "pestphp/pest": "^1.0.5",
         "friendsofphp/php-cs-fixer": "^2.16.4",
         "phpstan/phpstan": "^0.12.48",
         "symfony/var-dumper": "^5.2.0"
