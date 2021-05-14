@@ -15,12 +15,11 @@
         }
     ],
     "require": {
-        "php": "^7.4",
-        "symfony/polyfill-php80": "^1.22"
+        "php": "^8.0"
     },
     "require-dev": {
         "pestphp/pest": "^1.0.5",
-        "friendsofphp/php-cs-fixer": "^2.16.4",
+        "friendsofphp/php-cs-fixer": "^3",
         "phpstan/phpstan": "^0.12.48",
         "symfony/var-dumper": "^5.2.0"
     },

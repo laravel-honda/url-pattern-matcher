@@ -22,15 +22,15 @@ class UrlPatternMatcher
         $flags = 0;
 
         if (str_starts_with($pattern, '^')) {
-            $flags = $flags | static::PATTERN_CHECKS_BEGINNING;
+            $flags |= static::PATTERN_CHECKS_BEGINNING;
         }
 
         if (str_ends_with($pattern, '$')) {
-            $flags = $flags | static::PATTERN_CHECKS_ENDING;
+            $flags |= static::PATTERN_CHECKS_ENDING;
         }
 
         if (str_contains($pattern, '?') || str_contains($pattern, '*')) {
-            $flags = $flags | static::PATTERN_IS_WILDCARD;
+            $flags |= static::PATTERN_IS_WILDCARD;
         }
 
         return $flags;
