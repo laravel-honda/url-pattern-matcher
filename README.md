@@ -12,7 +12,7 @@ composer require honda/url-pattern-matcher
 
 ## Usage
 
-Trailing `/` are ignored so the matcher if given `/example` will match `/example`, `example`, `example/`, `/example/`.
+Trailing forward slashes are ignored so the matcher will match `/example`, `example`, `example/`, `/example/`  if given `/example`.
 
 ```php
 use Honda\UrlPatternMatcher\UrlPatternMatcher;
