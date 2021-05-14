@@ -65,18 +65,19 @@ class UrlPatternMatcher
             return true;
         }
 
+        $state = [];
         if ($this->type & static::PATTERN_IS_WILDCARD) {
-            return fnmatch($this->pattern, $url);
+            $state[] = fnmatch($this->pattern, $url);
         }
 
         if ($this->type & static::PATTERN_CHECKS_BEGINNING) {
-            return str_starts_with($url, $this->pattern);
+            $state[] = str_starts_with($url, $this->pattern);
         }
 
         if ($this->type & static::PATTERN_CHECKS_ENDING) {
-            return str_ends_with($url, $this->pattern);
+            $state[] = str_ends_with($url, $this->pattern);
         }
 
-        return false;
+        return array_reduce($state, fn ($_, $value) => is_null($_) ? $value : $_ && $value, null) ?: false;
     }
 }
