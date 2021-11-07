@@ -38,6 +38,7 @@ it('can match the URL from the beginning', function () {
     expect($matcher->match('/articles/'))->toBeTrue();
     expect($matcher->match('articles/'))->toBeTrue();
     expect($matcher->match('articles'))->toBeTrue();
+    expect($matcher->match('something/articles'))->toBeFalse();
 });
 
 it('can match the URL from the end', function () {
