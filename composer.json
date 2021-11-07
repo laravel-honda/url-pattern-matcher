@@ -1,6 +1,6 @@
 {
     "name": "honda/url-pattern-matcher",
-    "description": "url-pattern-matcher",
+    "description": "Check if a given path matches a given pattern.",
     "keywords": [
         "honda",
         "url-pattern-matcher"
