@@ -8,9 +8,9 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        os: [ubuntu-latest]
-        php: [8.0]
-        dependency-version: [prefer-stable]
+        os: [ubuntu-latest, windows-latest, darwin-latest]
+        php: [8.0, 8.1]
+        dependency-version: [prefer-stable, prefer-lowest]
 
     name: Tests PHP${{ matrix.php }} - ${{ matrix.os }} - ${{ matrix.dependency-version }}
 
